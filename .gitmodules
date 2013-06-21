@@ -1,36 +1,36 @@
-[submodule "bundle/L9"]
-	path = bundle/L9
+[submodule ".vim/bundle/L9"]
+	path = .vim/bundle/L9
 	url = https://github.com/vim-scripts/L9
-[submodule "bundle/autocomplpop"]
-	path = bundle/autocomplpop
+[submodule ".vim/bundle/autocomplpop"]
+	path = .vim/bundle/autocomplpop
 	url = https://github.com/othree/vim-autocomplpop
-[submodule "bundle/coffeescript"]
-	path = bundle/coffeescript
+[submodule ".vim/bundle/coffeescript"]
+	path = .vim/bundle/coffeescript
 	url = https://github.com/kchmck/vim-coffee-script
-[submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
-[submodule "bundle/supertab"]
-	path = bundle/supertab
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
-[submodule "bundle/taglist"]
-	path = bundle/taglist
+[submodule ".vim/bundle/taglist"]
+	path = .vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "bundle/vim-endwise"]
-	path = bundle/vim-endwise
+[submodule ".vim/bundle/vim-endwise"]
+	path = .vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise
-[submodule "bundle/vim-indexed-search"]
-	path = bundle/vim-indexed-search
+[submodule ".vim/bundle/vim-indexed-search"]
+	path = .vim/bundle/vim-indexed-search
 	url = https://github.com/henrik/vim-indexed-search
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
