@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
+[submodule ".vim/.vim/bundle/L9"]
+	path = .vim/.vim/bundle/L9
+	url = https://github.com/vim-scripts/L9
