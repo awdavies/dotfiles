@@ -37,3 +37,6 @@
 [submodule ".vim/.vim/bundle/L9"]
 	path = .vim/.vim/bundle/L9
 	url = https://github.com/vim-scripts/L9
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
