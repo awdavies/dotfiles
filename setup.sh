@@ -9,20 +9,35 @@
 # there are no checks to see which directory we're in or if any of
 # the files in question exist.
 
-# The files we'll be (potentially) linking.
+# The files we'll be (potentially) linking.  This will have to manually
+# be expanded as dotfiles are added.
 FILES=(.vimrc .vim .tmux.conf)
 
 echo "RUNNING SETUP"
+
 # Setup all the files.
 for f in ${FILES[@]}
 do
-  # Just symlink all the files blindly for now.
-  ln -s "`pwd`/$f" $HOME
+  echo -n "[ $f ]"
+  if [[ -e "$HOME/$f" ]]
+  then
+    echo -e "\t\t\tExists. Ignoring."
+  else
+    # Just symlink all the files blindly for now.
+    ln -s "`pwd`/$f" $HOME >/dev/null 2>/dev/null
+    if [[ $? ]]
+    then
+      echo -e "\t\t\tLinked Successfully."
+    else
+      echo -e "\t\t\tLinking Failed."
+    fi
+  fi
 done
 
 # Create vim backup directory.
 if [[ ! -e "$HOME/.vim/tmp" ]]
 then
+  echo "Creating vim tmp directory. . ."
   mkdir "$HOME/.vim/tmp"
 fi
 
