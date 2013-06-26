@@ -74,3 +74,20 @@ let g:acp_behavior = {
 set relativenumber
 set background=dark
 colorscheme solarized
+
+" Map space to center window.
+map <space> zz
+
+" Window switching.
+map <leader>w <C-w>w
+
+" Set up relative line numbers in NERDTree.
+function NERDToggle()
+  :NERDTreeToggle
+  if (exists("b:NERDTreeType") && b:NERDTreeType == "primary")
+    :call NumberToggle()
+  endif
+endfunction
+
+" NERDTree Commands.
+map <leader>a :call NERDToggle()<CR>
