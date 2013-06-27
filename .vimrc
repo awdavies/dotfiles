@@ -80,12 +80,6 @@ colorscheme solarized
 " Map space to center window.
 map <space> zz
 
-" Window switching.
-map <leader>wh <C-w>wh
-map <leader>wl <C-w>wl
-map <leader>wk <C-w>wk
-map <leader>wj <C-w>wj
-
 " Set up relative line numbers in NERDTree.
 function NERDToggle()
   :NERDTreeToggle
