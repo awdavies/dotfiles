@@ -24,8 +24,10 @@ function! NumberToggle()
   endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" A few mutt settings.
 :au BufRead /tmp/mutt-* set tw=72
-:au BufRead /home/andrew/documents/junk/story/* set tw=72
+
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
 " map <leader>b :CtrlPBufferautocmd InsertLeave * :set relativenumber
