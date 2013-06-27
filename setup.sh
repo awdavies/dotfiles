@@ -13,7 +13,11 @@
 # be expanded as dotfiles are added.
 FILES=(.vimrc .vim .tmux.conf)
 
+
 echo "RUNNING SETUP"
+
+git submodule init
+git submodule update
 
 # Setup all the files.
 for f in ${FILES[@]}
