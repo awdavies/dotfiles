@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/youcompleteme"]
 	path = .vim/bundle/youcompleteme
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule ".vim/bundle/cscope"]
+	path = .vim/bundle/cscope
+	url = https://github.com/vim-scripts/cscope.vim
