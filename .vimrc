@@ -90,3 +90,4 @@ endfunction
 
 " NERDTree Commands.
 map <leader>a :call NERDToggle()<CR>
+:let g:session_autosave = 'no'
