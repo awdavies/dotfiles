@@ -1,6 +1,6 @@
 let mapleader=","
-set ts=2
 set sw=2
+set ts=2
 set expandtab
 set spl=en
 set wrap
@@ -76,6 +76,7 @@ let g:acp_behavior = {
 set relativenumber
 set background=dark
 colorscheme solarized
+hi Normal ctermbg=none
 
 " Map space to center window.
 map <space> zz
