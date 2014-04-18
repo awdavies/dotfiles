@@ -92,3 +92,7 @@ endfunction
 " NERDTree Commands.
 map <leader>a :call NERDToggle()<CR>
 :let g:session_autosave = 'no'
+
+" Indent guides (man's best friend).
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey

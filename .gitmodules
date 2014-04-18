@@ -61,3 +61,9 @@
 [submodule ".vim/bundle/rust"]
 	path = .vim/bundle/rust
 	url = https://github.com/wting/rust.vim
+[submodule ".vim/bundle/you_complete_me"]
+	path = .vim/bundle/you_complete_me
+	url = https://github.com/Valloric/YouCompleteMe
+[submodule ".vim/bundle/vim-indent-guides"]
+	path = .vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides

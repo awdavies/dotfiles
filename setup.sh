@@ -17,7 +17,7 @@ FILES=(.vimrc .vim .tmux.conf)
 echo "RUNNING SETUP"
 
 git submodule init
-git submodule update
+git submodule update --init --recursive
 
 # Setup all the files.
 for f in ${FILES[@]}
