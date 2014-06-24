@@ -75,7 +75,6 @@ let g:acp_behavior = {
 
 set relativenumber
 set background=dark
-colorscheme solarized
 hi Normal ctermbg=none
 
 " Map space to center window.
@@ -96,3 +95,4 @@ map <leader>a :call NERDToggle()<CR>
 " Indent guides (man's best friend).
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+colorscheme Tomorrow-Night-Eighties"
