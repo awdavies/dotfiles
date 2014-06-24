@@ -22,7 +22,7 @@ git submodule update --init --recursive
 # Setup all the files.
 for f in ${FILES[@]}
 do
-  echo -n "[ $f ]"
+  echo -en "[ $f ]"
   if [[ -e "$HOME/$f" ]]
   then
     echo -e "\t\t\tExists. Ignoring."
@@ -39,7 +39,7 @@ do
 done
 
 # Create vim backup directory.
-if [[ ! -e "$HOME/.vim/tmp" ]]
+if [[ ! -e "$HOME/.vim" || ! -e "$HOME/.vim/tmp" ]]
 then
   echo "Creating vim tmp directory. . ."
   mkdir "$HOME/.vim/tmp"
