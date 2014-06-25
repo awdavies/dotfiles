@@ -11,7 +11,7 @@
 
 # The files we'll be (potentially) linking.  This will have to manually
 # be expanded as dotfiles are added.
-FILES=(.vimrc .vim .tmux.conf)
+FILES=(.vimrc .vim .tmux.conf .Xresources)
 
 
 echo "RUNNING SETUP"
@@ -43,6 +43,13 @@ if [[ ! -e "$HOME/.vim" || ! -e "$HOME/.vim/tmp" ]]
 then
   echo "Creating vim tmp directory. . ."
   mkdir "$HOME/.vim/tmp"
+fi
+
+# Run xrdb if necessary
+if [[ -e "$HOME/.Xresources" ]]
+then
+  echo "Running xrdb. . ."
+  xrdb "$HOME/.Xresources"
 fi
 
 echo "DONE"
