@@ -11,9 +11,11 @@ set directory=~/.vim/tmp
 " Pathogen!
 execute pathogen#infect()
 
+" Some more necessary junk.
 syntax on
+set relativenumber
 filetype plugin indent on
-imap jk <esc>
+hi Normal ctermbg=none
 
 " Line number toggling.
 function! NumberToggle()
@@ -27,7 +29,6 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 " A few mutt settings.
 :au BufRead /tmp/mutt-* set tw=72
-
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
 " map <leader>b :CtrlPBufferautocmd InsertLeave * :set relativenumber
@@ -43,6 +44,7 @@ map <leader>t :TlistToggle<enter>
 " General commands.
 map <leader>l :lnext<enter>
 map <leader>h :lprev<enter>
+imap jk <esc>
 
 " Eclim commands that don't suck!
 imap <C-Space> <C-x><C-u>
@@ -73,9 +75,11 @@ let g:acp_behavior = {
       \ }]
       \ }
 
-set relativenumber
+" Colorscheme Setup.
+let g:solarized_term_colors=256
 set background=dark
-hi Normal ctermbg=none
+colorscheme Tomorrow-Night-Eighties
+"colorscheme solarized
 
 " Map space to center window.
 map <space> zz
@@ -93,6 +97,9 @@ map <leader>a :call NERDToggle()<CR>
 :let g:session_autosave = 'no'
 
 " Indent guides (man's best friend).
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-colorscheme Tomorrow-Night-Eighties"
+"let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+let s:background = "2d2d2d"
+hi IndentGuidesOdd  ctermbg=232
+hi IndentGuidesEven ctermbg=237
