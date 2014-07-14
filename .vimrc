@@ -98,8 +98,7 @@ map <leader>a :call NERDToggle()<CR>
 
 " Indent guides (man's best friend).
 "let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
+"let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-let s:background = "2d2d2d"
-hi IndentGuidesOdd  ctermbg=232
-hi IndentGuidesEven ctermbg=237
+hi IndentGuidesOdd  ctermbg=242
+hi IndentGuidesEven ctermbg=238
