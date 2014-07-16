@@ -102,3 +102,6 @@ map <leader>a :call NERDToggle()<CR>
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=242
 hi IndentGuidesEven ctermbg=238
+
+" Autoremove trailing whitespace.
+autocmd BufWritePre <buffer> :%s/\s\+$//e
