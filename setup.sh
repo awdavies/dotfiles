@@ -124,12 +124,13 @@ then
   ./install.sh 1>$YCM_OUT 2>$YCM_ERR
   INSTALL_RES=$?
   _pop
-  if [[ ! $RES ]]
+  if [[ ! $INSTALL_RES ]]
   then
     echo "You Complete Me Compilation Failed.  Check $YCM_ERR for details"
   else
     touch $YCM_STATUS_FILE
   fi
+  rm -f $YCM_OUT $YCM_ERR
 fi
 
 # Run xrdb if necessary.
