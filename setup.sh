@@ -95,7 +95,7 @@ then
   git clone $OHMYZSHURL $ZSHDIR
 fi
 
-if [[ ! -e $HOME/.zshrc ]]
+if [[ ! -e $HOME/.zshrc && -e $HOME/$ZSHDIR ]]
 then
   cp $ZSHDIR/templates/zshrc.zsh-template $HOME/.zshrc
 fi
