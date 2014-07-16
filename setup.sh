@@ -92,7 +92,7 @@ cd $HOME
 if [[ ! -e $ZSHDIR ]]
 then
   echo "Creating zsh configuration. . ."
-  git clone $OHMYZSHURL $ZSHDIR 1&>/dev/null
+  git clone $OHMYZSHURL $ZSHDIR
 fi
 
 if [[ ! -e $HOME/.zshrc ]]
@@ -122,7 +122,7 @@ then
   echo "For details. . ."
   cd "$WD/$YCM_ROOT_DIR"
   ./install.sh 1>$YCM_OUT 2>$YCM_ERR
-  RES=$?
+  INSTALL_RES=$?
   _pop
   if [[ ! $RES ]]
   then
