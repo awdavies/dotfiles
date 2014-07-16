@@ -52,11 +52,11 @@ git submodule init
 git submodule update --init --recursive
 
 # Push and pop util functions.
-function _push {
-  pushd 1&>/dev/null 
+function _push() {
+  pushd $(pwd) 1>/dev/null 
 }
-function _pop {
-  popd 1&>/dev/null 
+function _pop() {
+  popd 1>/dev/null 
 }
 
 # Setup all the files.
@@ -95,7 +95,6 @@ then
   git clone $OHMYZSHURL $ZSHDIR 1&>/dev/null
 fi
 
-pwd
 if [[ ! -e $HOME/.zshrc ]]
 then
   cp $ZSHDIR/templates/zshrc.zsh-template $HOME/.zshrc
@@ -121,13 +120,16 @@ then
   echo -e "\ttail -f $YCM_OUT"
   echo
   echo "For details. . ."
-  cd $WD/$YCM_ROOT_DIR
+  cd "$WD/$YCM_ROOT_DIR"
   ./install.sh 1>$YCM_OUT 2>$YCM_ERR
-  if [[ ! $? ]]
+  RES=$?
+  _pop
+  if [[ ! $RES ]]
   then
     echo "You Complete Me Compilation Failed.  Check $YCM_ERR for details"
+  else
+    touch $YCM_STATUS_FILE
   fi
-  _pop
 fi
 
 # Run xrdb if necessary.
