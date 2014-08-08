@@ -108,9 +108,9 @@ function WhiteSpaceHandler()
   hi IndentGuidesEven ctermbg=238
   " Display trailing whitespace.
   hi ExtraWhitespace ctermbg=242
-  match ExtraWhitespace /\s\+\%#\@<!$/
+  autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   " Autoremove trailing whitespace.
-  autocmd BufWritePre <buffer> :%s/\s\+$//e
+  autocmd BufWritePre * :%s/\s\+$//e
 endfunction
 :call WhiteSpaceHandler()
 
