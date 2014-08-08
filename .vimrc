@@ -96,6 +96,13 @@ endfunction
 map <leader>a :call NERDToggle()<CR>
 :let g:session_autosave = 'no'
 
+function ClearTrailing()
+  :mark x  " Use a mark I would never use.
+  :%s/\s\+$//e
+  :'x   " recall said mark.
+  :delmark x
+endfunction
+
 " This silly function has to do with changing the colorscheme for Indent
 " Editing.  This stuff won't update unless we force it to after changing
 " the colorscheme.
@@ -110,7 +117,7 @@ function WhiteSpaceHandler()
   hi ExtraWhitespace ctermbg=242
   autocmd BufWinEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   " Autoremove trailing whitespace.
-  autocmd BufWritePre * :%s/\s\+$//e
+  autocmd BufWritePre * call ClearTrailing()
 endfunction
 :call WhiteSpaceHandler()
 
