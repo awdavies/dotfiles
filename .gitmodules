@@ -70,3 +70,9 @@
 [submodule ".vim/bundle/vim-tomorrow-theme"]
 	path = .vim/bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme
+[submodule ".vim/bundle/vim-twilight"]
+	path = .vim/bundle/vim-twilight
+	url = https://github.com/matthewtodd/vim-twilight
+[submodule ".vim/bundle/vim-colors-wombat"]
+	path = .vim/bundle/vim-colors-wombat
+	url = https://github.com/jeffreyiacono/vim-colors-wombat

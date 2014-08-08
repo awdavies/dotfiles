@@ -105,3 +105,19 @@ hi IndentGuidesEven ctermbg=238
 
 " Autoremove trailing whitespace.
 autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+function TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+    colorscheme twilight
+  else
+    set shiftwidth=2
+    set softtabstop=2
+    set expandtab
+    set background=dark
+    colorscheme Tomorrow-Night-Eighties
+  endif
+endfunction
+map <leader><space> :call TabToggle()<CR>
