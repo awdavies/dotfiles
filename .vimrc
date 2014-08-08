@@ -96,15 +96,23 @@ endfunction
 map <leader>a :call NERDToggle()<CR>
 :let g:session_autosave = 'no'
 
-" Indent guides (man's best friend).
-"let g:indent_guides_color_change_percent = 30
-"let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=242
-hi IndentGuidesEven ctermbg=238
-
-" Autoremove trailing whitespace.
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+" This silly function has to do with changing the colorscheme for Indent
+" Editing.  This stuff won't update unless we force it to after changing
+" the colorscheme.
+function WhiteSpaceHandler()
+  " Indent guides (man's best friend).
+  "let g:indent_guides_color_change_percent = 30
+  "let g:indent_guides_guide_size = 1
+  let g:indent_guides_auto_colors = 0
+  hi IndentGuidesOdd  ctermbg=242
+  hi IndentGuidesEven ctermbg=238
+  " Display trailing whitespace.
+  hi ExtraWhitespace ctermbg=242
+  match ExtraWhitespace /\s\+\%#\@<!$/
+  " Autoremove trailing whitespace.
+  autocmd BufWritePre <buffer> :%s/\s\+$//e
+endfunction
+:call WhiteSpaceHandler()
 
 " Toggles between tab editing and space editing.
 function TabToggle()
@@ -113,12 +121,14 @@ function TabToggle()
     set softtabstop=0
     set noexpandtab
     colorscheme twilight
+    :call WhiteSpaceHandler()
   else
     set shiftwidth=2
     set softtabstop=2
     set expandtab
     set background=dark
     colorscheme Tomorrow-Night-Eighties
+    :call WhiteSpaceHandler()
   endif
 endfunction
 map <leader><space> :call TabToggle()<CR>
