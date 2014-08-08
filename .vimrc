@@ -106,9 +106,10 @@ hi IndentGuidesEven ctermbg=238
 " Autoremove trailing whitespace.
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Toggles between tab editing and space editing.
 function TabToggle()
   if &expandtab
-    set shiftwidth=8
+    set shiftwidth=2
     set softtabstop=0
     set noexpandtab
     colorscheme twilight
@@ -121,3 +122,7 @@ function TabToggle()
   endif
 endfunction
 map <leader><space> :call TabToggle()<CR>
+
+" Display tabs visually.
+set listchars=tab:».
+set list
