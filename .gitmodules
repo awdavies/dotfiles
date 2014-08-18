@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/vim-colors-wombat"]
 	path = .vim/bundle/vim-colors-wombat
 	url = https://github.com/jeffreyiacono/vim-colors-wombat
+[submodule ".vim/bundle/csapprox"]
+	path = .vim/bundle/csapprox
+	url = https://github.com/vim-scripts/CSApprox
