@@ -60,12 +60,13 @@ function _pop() {
   popd 1>/dev/null
 }
 function soft_link() {
-  echo -en "[ `basename $1` ]"
-  ln -s "$1" $2 >/dev/null 2>/dev/null
-  if [[ -e "$2/$1" ]]
+  local f=`basename $1`
+  echo -en "[ $f ]"
+  if [[ -e "$2/$f" ]]
   then
     echo -e "\t\t\tExists. Ignoring."
   else
+    ln -s "$1" "$2" >/dev/null 2>/dev/null
     if [[ $? ]]
     then
       echo -e "\t\t\tLinked Successfully."
