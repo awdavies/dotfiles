@@ -1,0 +1,11 @@
+[user]
+	name = Andrew Davies
+	email = a.w.davies.vio@google.com
+[alias]
+  glog = log --graph
+  splice = checkout -b
+  chop = branch -D
+  ignore = update-index --assume-unchanged
+  follow = update-index --no-assume-unchanged
+  diff = diff -w
+  conflicts = diff --name-only --diff-filter=U
