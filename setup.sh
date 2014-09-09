@@ -62,23 +62,23 @@ function _pop() {
 function soft_link() {
   echo -en "[ `basename $1` ]"
   ln -s "$1" $2 >/dev/null 2>/dev/null
-  if [[ $? ]]
+  if [[ -e "$2/$1" ]]
   then
-    echo -e "\t\t\tLinked Successfully."
+    echo -e "\t\t\tExists. Ignoring."
   else
-    echo -e "\t\t\tLinking Failed."
+    if [[ $? ]]
+    then
+      echo -e "\t\t\tLinked Successfully."
+    else
+      echo -e "\t\t\tLinking Failed."
+    fi
   fi
 }
 
 # Setup all the files.
 for f in ${FILES[@]}
 do
-  if [[ -e "$HOME/$f" ]]
-  then
-    echo -e "\t\t\tExists. Ignoring."
-  else
-    soft_link "`pwd`/$f" $HOME
-  fi
+  soft_link "`pwd`/$f" $HOME
 done
 
 # Create vim backup directory.
