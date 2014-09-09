@@ -59,23 +59,25 @@ function _push() {
 function _pop() {
   popd 1>/dev/null
 }
+function soft_link() {
+  echo -en "[ `basename $1` ]"
+  ln -s "$1" $2 >/dev/null 2>/dev/null
+  if [[ $? ]]
+  then
+    echo -e "\t\t\tLinked Successfully."
+  else
+    echo -e "\t\t\tLinking Failed."
+  fi
+}
 
 # Setup all the files.
 for f in ${FILES[@]}
 do
-  echo -en "[ $f ]"
   if [[ -e "$HOME/$f" ]]
   then
     echo -e "\t\t\tExists. Ignoring."
   else
-    # Just symlink all the files blindly for now.
-    ln -s "`pwd`/$f" $HOME >/dev/null 2>/dev/null
-    if [[ $? ]]
-    then
-      echo -e "\t\t\tLinked Successfully."
-    else
-      echo -e "\t\t\tLinking Failed."
-    fi
+    soft_link "`pwd`/$f" $HOME
   fi
 done
 
@@ -83,7 +85,7 @@ done
 if [[ ! -e "$HOME/.vim" || ! -e "$HOME/.vim/tmp" ]]
 then
   echo "Creating vim tmp directory. . ."
-  mkdir "$HOME/.vim/tmp"
+  mkdir -p "$HOME/.vim/tmp"
 fi
 
 # Set up oh-my-zsh.
@@ -102,6 +104,14 @@ then
 fi
 _pop
 echo
+
+# Setup herbstluftwm config.
+HERB_DIR=.config/herbstluftwm/
+_push
+cd $HOME
+mkdir -p ${HERB_DIR}
+_pop
+soft_link autostart "${HOME}/${HERB_DIR}"
 
 # Add color theme inclusion to Xresources if it doesn't exist.
 RES=$(egrep $COLOR_REGEX $HOME/.Xresources)
