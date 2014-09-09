@@ -16,16 +16,17 @@
 # be expanded as dotfiles are added.
 
 #######################
-# COLORS 
+# COLORS
 #######################
 # Uncomment the color theme you want in Xresource.
 # If you make your own, make sure to put it in an Xresources file named
 # .Xresources.[theme_name]_colors so as to be detected by the regex.
-# 
+#
 # The file itself should be inside of the same directory as this script.
 #
-#XRESOURCES_THEME="solarized_colors"
-XRESOURCES_THEME="tomorrow_night_eighties_colors"
+XRESOURCES_THEME="solarized"
+#XRESOURCES_THEME="tomorrow_night_eighties_colors"
+#XRESOURCES_THEME="some_theme"
 XRESOURCES_THEME_FILE=$HOME/.Xresources.$XRESOURCES_THEME
 COLOR_REGEX="^#include<$HOME\/\.Xresources\.\w+?colors>$"
 
@@ -53,10 +54,10 @@ git submodule update --init --recursive
 
 # Push and pop util functions.
 function _push() {
-  pushd $(pwd) 1>/dev/null 
+  pushd $(pwd) 1>/dev/null
 }
 function _pop() {
-  popd 1>/dev/null 
+  popd 1>/dev/null
 }
 
 # Setup all the files.

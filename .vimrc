@@ -1,3 +1,6 @@
+" Pathogen!
+execute pathogen#infect()
+
 let mapleader=","
 set sw=2
 set ts=2
@@ -7,15 +10,13 @@ set wrap
 set ai
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
-
-" Pathogen!
-execute pathogen#infect()
+set t_Co=256
 
 " Some more necessary junk.
 syntax on
 set relativenumber
 filetype plugin indent on
-hi Normal ctermbg=none
+"hi Normal ctermfg=16 ctermbg=254
 
 " Line number toggling.
 function! NumberToggle()
@@ -76,10 +77,8 @@ let g:acp_behavior = {
       \ }
 
 " Colorscheme Setup.
-let g:solarized_term_colors=256
 set background=dark
-colorscheme Tomorrow-Night-Eighties
-"colorscheme solarized
+colorscheme twilight
 
 " Map space to center window.
 map <space> zz
@@ -127,6 +126,7 @@ function TabToggle()
     set shiftwidth=2
     set softtabstop=0
     set noexpandtab
+    set background=dark
     colorscheme twilight
     :call WhiteSpaceHandler()
   else
@@ -134,7 +134,7 @@ function TabToggle()
     set softtabstop=2
     set expandtab
     set background=dark
-    colorscheme Tomorrow-Night-Eighties
+    colorscheme base16-default
     :call WhiteSpaceHandler()
   endif
 endfunction

@@ -79,3 +79,9 @@
 [submodule ".vim/bundle/csapprox"]
 	path = .vim/bundle/csapprox
 	url = https://github.com/vim-scripts/CSApprox
+[submodule ".vim/bundle/base16-vim"]
+	path = .vim/bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim
+[submodule ".vim/bundle/quickopen"]
+	path = .vim/bundle/quickopen
+	url = https://github.com/natduca/quickopen
