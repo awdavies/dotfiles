@@ -112,7 +112,7 @@ _push
 cd $HOME
 mkdir -p ${HERB_DIR}
 _pop
-soft_link autostart "${HOME}/${HERB_DIR}"
+soft_link "`pwd`/autostart" "${HOME}/${HERB_DIR}"
 
 # Add color theme inclusion to Xresources if it doesn't exist.
 RES=$(egrep $COLOR_REGEX $HOME/.Xresources)
