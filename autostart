@@ -1,0 +1,115 @@
+#!/bin/bash
+
+# this is a simple config for herbstluftwm
+
+function hc() {
+	herbstclient "$@"
+}
+
+hc emit_hook reload
+
+xsetroot -solid '#000000'
+eval `cat ~/.wallpaper` &
+
+# remove all existing keybindings
+hc keyunbind --all
+
+# keybindings
+Mod=Mod4
+hc keybind $Mod-Shift-q quit
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-Shift-c close
+hc keybind $Mod-Shift-Return spawn urxvt
+
+#herbstclient load ${TAG_NAMES[0]} '(clients max:0)'
+
+# tags
+TAG_NAMES=( {1..9} 0 )
+TAG_KEYS=( {1..9} 0 )
+
+hc rename default "${TAG_NAMES[0]}" || true
+for i in ${!TAG_NAMES[@]} ; do
+	hc add "${TAG_NAMES[$i]}"
+	key="${TAG_KEYS[$i]}"
+	if ! [ -z "$key" ] ; then
+		hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
+		hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
+	fi
+done
+
+# layouting
+hc keybind $Mod-r remove
+hc keybind $Mod-space cycle_layout 1
+hc keybind $Mod-v split vertical 0.5
+hc keybind $Mod-b split horizontal 0.5
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-p pseudotile toggle
+
+# dmenu_run
+hc keybind $Mod-Shift-p spawn dmenu_run -fn "-*-pixelcarnage monospace-*-*-*-14-*-*-*-*-*-*-*" -nb "#000000" -sf "#777777" -sb "#fff740"
+
+## resizing
+RESIZESTEP=0.05
+hc keybind $Mod-Control-h resize left +$RESIZESTEP
+hc keybind $Mod-Control-j resize down +$RESIZESTEP
+hc keybind $Mod-Control-k resize up +$RESIZESTEP
+hc keybind $Mod-Control-l resize right +$RESIZESTEP
+
+## mouse
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 resize
+hc mousebind $Mod-Button3 zoom
+
+## focus
+hc set focus_follows_mouse 1
+
+hc keybind $Mod-Tab        cycle_all +1
+hc keybind $Mod-Shift-Tab  cycle_all -1
+hc keybind $Mod-c cycle
+#
+hc keybind $Mod-h focus left
+hc keybind $Mod-j focus down
+hc keybind $Mod-k focus up
+hc keybind $Mod-l focus right
+#
+hc keybind $Mod-Shift-h shift left
+hc keybind $Mod-Shift-j shift down
+hc keybind $Mod-Shift-k shift up
+hc keybind $Mod-Shift-l shift right
+
+## colors
+hc set frame_bg_transparent 0
+hc set frame_border_active_color '#fff740'
+hc set frame_border_normal_color '#666666'
+hc set frame_bg_active_color '#000000'
+hc set frame_bg_normal_color '#000000'
+hc set frame_border_width 0
+hc set window_gap 0
+hc set gapless_grid 0
+hc set window_border_width 2
+hc set window_border_normal_color '#111111'
+hc set window_border_active_color '#666666'
+hc set always_show_frame 1
+hc set default_frame_layout 2
+hc set snap_distance 12
+hc set snap_gap 12
+hc set frame_bg_transparent 1
+
+## rules
+hc unrule -F
+#hc rule class=XTerm tag=3 # move all xterms to tag 3
+hc rule focus=off # normally do not focus new clients
+# give focus to most common terminals
+hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
+#
+hc rule class=Opera tag=2
+hc rule class~'(MPlayer|Vlc)' tag=3 fullscreen=on
+
+## if you want to start a panel, do so here
+#hc pad 0 18 0 0
+#hlwm-xmobar
+# tint2 &
