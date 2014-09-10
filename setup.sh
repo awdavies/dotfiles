@@ -34,6 +34,7 @@ COLOR_REGEX="^#include<$HOME\/\.Xresources\.\w+?colors>$"
 # INSTALL FILES
 #######################
 FILES=(\
+  .gitconfig \
   .vimrc \
   .vim \
   .tmux.conf \

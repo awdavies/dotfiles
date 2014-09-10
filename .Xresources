@@ -51,4 +51,3 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
-#include</usr/local/google/home/awdavies/.Xresources.solarized>
