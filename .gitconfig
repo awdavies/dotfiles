@@ -7,5 +7,7 @@
   chop = branch -D
   ignore = update-index --assume-unchanged
   follow = update-index --no-assume-unchanged
-  diff = diff -w
   conflicts = diff --name-only --diff-filter=U
+
+  # Be very carefule about when you use this....
+  nuke = !git clean -fdx $@ $(git rev-parse --show-toplevel)
