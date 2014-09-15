@@ -9,8 +9,9 @@
 # there are no checks to see which directory we're in or if any of
 # the files in question exist.
 #
-# TODO(awdavies) Add in an auto-installation of oh-my-zsh, and copying of your
-# own zshrc and zalias files.  This will require running a git clone.
+# TODO(awdavies) The regex for adding in the color theme in .Xresources
+# doesn't work.  Furthermore, if there's an error when trying to compile
+# ycm, it still gets detected as success.
 
 # The files we'll be (potentially) linking.  This will have to manually
 # be expanded as dotfiles are added.
