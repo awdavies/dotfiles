@@ -13,9 +13,6 @@
 # doesn't work.  Furthermore, if there's an error when trying to compile
 # ycm, it still gets detected as success.
 
-# The files we'll be (potentially) linking.  This will have to manually
-# be expanded as dotfiles are added.
-
 #######################
 # COLORS
 #######################
