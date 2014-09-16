@@ -7,7 +7,6 @@ herbstclient "$@"
 }
 
 hc emit_hook reload
-
 xsetroot -solid '#000000'
 eval `cat ~/.wallpaper` &
 
@@ -47,7 +46,7 @@ hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 
 # dmenu_run
-hc keybind $Mod-Shift-p spawn dmenu_run -fn "-*-pixelcarnage monospace-*-*-*-14-*-*-*-*-*-*-*" -nb "#000000" -sf "#777777" -sb "#fff740"
+hc keybind $Mod-Shift-p spawn dmenu_run -fn "-*-pixelcarnage monospace-*-*-*-14-*-*-*-*-*-*-*" -nb "#073642" -sf "#073642" -sb "#839496"
 
 ## resizing
 RESIZESTEP=0.05
@@ -117,6 +116,7 @@ hc rule class~'(MPlayer|Vlc)' tag=3 fullscreen=on
 # If redshift is installed.
 which redshift 1>/dev/null
 if [[ $? -eq 0 ]]; then
+  killall redshift
   LATLON_FILE=$HOME/.config/herbstluftwm/.latlon
   if [[ -f $LATLON_FILE ]]; then
     LATLON=`cat $LATLON_FILE`
