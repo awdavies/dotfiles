@@ -3,7 +3,7 @@
 # this is a simple config for herbstluftwm
 
 function hc() {
-	herbstclient "$@"
+herbstclient "$@"
 }
 
 hc emit_hook reload
@@ -29,12 +29,12 @@ TAG_KEYS=( {1..9} 0 )
 
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
-	hc add "${TAG_NAMES[$i]}"
-	key="${TAG_KEYS[$i]}"
-	if ! [ -z "$key" ] ; then
-		hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
-		hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
-	fi
+  hc add "${TAG_NAMES[$i]}"
+  key="${TAG_KEYS[$i]}"
+  if ! [ -z "$key" ] ; then
+    hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
+    hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
+  fi
 done
 
 # layouting
@@ -91,7 +91,7 @@ hc set window_border_width 2
 hc set window_border_normal_color '#111111'
 hc set window_border_active_color '#666666'
 hc set always_show_frame 1
-hc set default_frame_layout 2
+hc set default_frame_layout 3
 hc set snap_distance 12
 hc set snap_gap 12
 hc set frame_bg_transparent 1
@@ -113,3 +113,16 @@ hc rule class~'(MPlayer|Vlc)' tag=3 fullscreen=on
 #hc pad 0 18 0 0
 #hlwm-xmobar
 # tint2 &
+
+# If redshift is installed.
+which redshift 1>/dev/null
+if [[ $? -eq 0 ]]; then
+  LATLON_FILE=$HOME/.config/herbstluftwm/.latlon
+  if [[ -f $LATLON_FILE ]]; then
+    LATLON=`cat $LATLON_FILE`
+    echo $LATLON > ~/TESTOMATIC
+    redshift -l $LATLON &
+  fi
+fi
+
+xrdb ~/.Xresources
