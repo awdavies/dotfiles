@@ -46,7 +46,7 @@ hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 
 # dmenu_run
-hc keybind $Mod-Shift-p spawn dmenu_run -fn "-*-pixelcarnage monospace-*-*-*-14-*-*-*-*-*-*-*" -nb "#073642" -sf "#073642" -sb "#839496"
+hc keybind $Mod-Shift-p spawn dmenu_run -fn "-*-pixelcarnage monospace-*-*-*-14-*-*-*-*-*-*-*" -nf "#eee8d5" -nb "#073642" -sf "#eee8d5" -sb "#839496"
 
 ## resizing
 RESIZESTEP=0.05
@@ -120,7 +120,6 @@ if [[ $? -eq 0 ]]; then
   LATLON_FILE=$HOME/.config/herbstluftwm/.latlon
   if [[ -f $LATLON_FILE ]]; then
     LATLON=`cat $LATLON_FILE`
-    echo $LATLON > ~/TESTOMATIC
     redshift -l $LATLON &
   fi
 fi
