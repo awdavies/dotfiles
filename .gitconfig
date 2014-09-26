@@ -1,6 +1,6 @@
 [user]
 	name = Andrew Davies
-	email = a.w.davies.vio@google.com
+	email = a.w.davies.vio@gmail.com
 [alias]
   glog = log --graph
   splice = checkout -b
