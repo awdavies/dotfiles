@@ -140,6 +140,9 @@ function TabToggle()
 endfunction
 map <leader><space> :call TabToggle()<CR>
 
+" Force jinja highlighting.
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
 " Display tabs visually.
 set listchars=tab:».
 set list
