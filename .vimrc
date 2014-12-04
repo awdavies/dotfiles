@@ -11,6 +11,7 @@ set ai
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 set t_Co=256
+set colorcolumn=80
 
 " Some more necessary junk.
 syntax on
