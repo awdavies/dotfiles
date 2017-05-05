@@ -1,6 +1,6 @@
 [user]
-	name = Andrew Davies
-	email = a.w.davies.vio@gmail.com
+  name = Andrew Davies
+  email = a.w.davies.vio@gmail.com
 [alias]
   glog = log --graph
   splice = checkout -b
@@ -8,6 +8,8 @@
   ignore = update-index --assume-unchanged
   follow = update-index --no-assume-unchanged
   conflicts = diff --name-only --diff-filter=U
+  get-fork-point = \
+    "!f() { git checkout $(git merge-base --fork-point \"$1\"); }; f"
 
   # Be very carefule about when you use this....
   nuke = !git clean -fdx $@ $(git rev-parse --show-toplevel)
